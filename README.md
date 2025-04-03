@@ -1,49 +1,61 @@
-1.
+## Вариантр А
 
-[9] - changed: prev-'' curr-'[9] - Value asyncLocalString: '3''  
-[15] - changed: prev-'' curr-'[15] - Value asyncLocalString: '9''  
-[4] - changed: prev-'' curr-'[4] - Value asyncLocalString: '0''  
-[15] - Value get '[15] - Value asyncLocalString: '9''  
-[6] - changed: prev-'' curr-'[6] - Value asyncLocalString: '1''  
-[7] - changed: prev-'' curr-'[7] - Value asyncLocalString: '2''  
-[6] - Value get '[6] - Value asyncLocalString: '1''  
-[7] - Value get '[7] - Value asyncLocalString: '2''  
-[7] - changed: prev-'[7] - Value asyncLocalString: '2'' curr-''  
-[14] - changed: prev-'' curr-'[14] - Value asyncLocalString: '8''  
-[11] - changed: prev-'' curr-'[11] - Value asyncLocalString: '5''  
-[14] - Value get '[14] - Value asyncLocalString: '8''  
-[14] - changed: prev-'[14] - Value asyncLocalString: '8'' curr-''  
-[4] - Value get '[4] - Value asyncLocalString: '0''  
-[4] - changed: prev-'[4] - Value asyncLocalString: '0'' curr-''  
-[6] - changed: prev-'[6] - Value asyncLocalString: '1'' curr-''  
-[12] - changed: prev-'' curr-'[12] - Value asyncLocalString: '6''  
-[13] - changed: prev-'' curr-'[13] - Value asyncLocalString: '7''  
-[9] - Value get '[9] - Value asyncLocalString: '3''  
-[13] - Value get '[13] - Value asyncLocalString: '7''  
-[13] - changed: prev-'[13] - Value asyncLocalString: '7'' curr-''  
-[15] - changed: prev-'[15] - Value asyncLocalString: '9'' curr-''  
-[12] - Value get '[12] - Value asyncLocalString: '6''  
-[12] - changed: prev-'[12] - Value asyncLocalString: '6'' curr-''  
-[10] - changed: prev-'' curr-'[10] - Value asyncLocalString: '4''  
-[11] - Value get '[11] - Value asyncLocalString: '5''  
-[10] - Value get '[10] - Value asyncLocalString: '4''  
-[10] - changed: prev-'[10] - Value asyncLocalString: '4'' curr-''  
-[11] - changed: prev-'[11] - Value asyncLocalString: '5'' curr-''  
-[9] - changed: prev-'[9] - Value asyncLocalString: '3'' curr-''  
-[9] - changed: prev-'' curr-'Value 1'  
+### Создание 10 тасок, в каждой из которых устанавливается значение свойства "AsyncLocalString" и спустя какое-то время вычитывается значение из свойства "AsyncLocalString", после чего таска завершается
 
-2.  
+В AsyncLocalString будет записана строка: 'Value5'  
+В AsyncLocalString будет записана строка: 'Value7'  
+В AsyncLocalString будет записана строка: 'Value3'  
+В AsyncLocalString будет записана строка: 'Value1'  
+В AsyncLocalString будет записана строка: 'Value8'  
+В AsyncLocalString будет записана строка: 'Value4'  
+В AsyncLocalString будет записана строка: 'Value9'  
+В AsyncLocalString будет записана строка: 'Value2'  
+В AsyncLocalString будет записана строка: 'Value6'  
+В AsyncLocalString будет записана строка: 'Value0'  
+[13] - Changed - '' => ''Value6''  
+[15] - Changed - '' => ''Value8''  
+[12] - Changed - '' => ''Value5''  
+[11] - Changed - '' => ''Value4''  
+[6] - Changed - '' => ''Value0''  
+[9] - Changed - '' => ''Value2''  
+[16] - Changed - '' => ''Value9''  
+Из AsyncLocalString получена строка: ''Value2''  
+Из AsyncLocalString получена строка: ''Value9''  
+[14] - Changed - '' => ''Value7''  
+Из AsyncLocalString получена строка: ''Value6''  
+Из AsyncLocalString получена строка: ''Value8''  
+Из AsyncLocalString получена строка: ''Value5''  
+[12] - Changed - ''Value5'' => '' - Поток вернулся в пул потоков.  
+Из AsyncLocalString получена строка: ''Value0''  
+[10] - Changed - '' => ''Value3''  
+[7] - Changed - '' => ''Value1''  
+[16] - Changed - ''Value9'' => '' - Поток вернулся в пул потоков.  
+Из AsyncLocalString получена строка: ''Value1''  
+[7] - Changed - ''Value1'' => '' - Поток вернулся в пул потоков.  
+Из AsyncLocalString получена строка: ''Value7''  
+[14] - Changed - ''Value7'' => '' - Поток вернулся в пул потоков.  
+[15] - Changed - ''Value8'' => '' - Поток вернулся в пул потоков.  
+Из AsyncLocalString получена строка: ''Value4''  
+[6] - Changed - ''Value0'' => '' - Поток вернулся в пул потоков.  
+Из AsyncLocalString получена строка: ''Value3''  
+[10] - Changed - ''Value3'' => '' - Поток вернулся в пул потоков.  
+[13] - Changed - ''Value6'' => '' - Поток вернулся в пул потоков.  
+[11] - Changed - ''Value4'' => '' - Поток вернулся в пул потоков.  
+[9] - Changed - ''Value2'' => '' - Поток вернулся в пул потоков.  
 
-Entering AsyncMethodB - [9] - Expected 'Value 1', AsyncLocal value is 'Value 1'  
-Exiting AsyncMethodB - [9] - Expected 'Value 1', got 'Value 1'  
-[9] - changed: prev-'Value 1' curr-'Value 2'  
-Entering AsyncMethodB - [9] - Expected 'Value 2', AsyncLocal value is 'Value 2'  
-[11] - changed: prev-'' curr-'Value 1'  
-Exiting AsyncMethodB - [9] - Expected 'Value 2', got 'Value 2'  
-[10] - changed: prev-'' curr-'Value 2'  
-   SubTask - [11] - Expected 'Value 1', AsyncLocal value is 'Value 1'  
-[11] - changed: prev-'Value 1' curr-''  
-   SubTask - [10] - Expected 'Value 2', AsyncLocal value is 'Value 2'  
-[10] - changed: prev-'Value 2' curr-''  
-[9] - changed: prev-'Value 2' curr-''  
-[9] - changed: prev-'' curr-'Value 2'  
+
+## Вариант B 
+
+### В основном потоке устанавливается, а затем спустя некоторое время меняется значение свойства "AsyncLocalString". В таске выполняется только считывание значения "AsyncLocalString"
+
+[1] - Changed - '' => 'Value 1'  
+AsyncMethodB Entering - Expected 'Value 1', AsyncLocal value is 'Value 1'  
+AsyncMethodB Exiting - Expected 'Value 1', AsyncLocal value is 'Value 1'  
+[1] - Changed - 'Value 1' => 'Value 2'  
+[4] - Changed - '' => 'Value 1'  
+[4] - SubTask - Expected 'Value 1', AsyncLocal value is 'Value 1'  
+[4] - Changed - 'Value 1' => '' - Поток вернулся в пул потоков.  
+[1] - Changed - 'Value 2' => '' - Поток вернулся в пул потоков.  
+[7] - Changed - '' => 'Value 2'  
+[7] - Main - Expected 'Value 2', AsyncLocal value is 'Value 2'  
+
